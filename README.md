@@ -58,6 +58,18 @@ Final ATO Prediction
 - **Selected features:** User ID, IP Address, ASN, Round-Trip Time (RTT)
 - **Target:** `Is Account Takeover` (binary)
 
+## 🔁 Pipeline Overview
+
+<p align="center">
+  <img src="assets/architecture_pipeline.png" alt="ATO Detection Framework Architecture" width="420"/>
+</p>
+
+## 🕵️ ATO Attack Lifecycle
+
+<p align="center">
+  <img src="assets/ato_lifecycle.png" alt="Account Takeover Attack Lifecycle" width="650"/>
+</p>
+
 ## 🏗️ Model Architecture
 
 | Component | Configuration |
@@ -91,7 +103,27 @@ Final ATO Prediction
 | **Actual Legitimate** | 679 | 27 |
 | **Actual Takeover** | 13 | 163 |
 
+<p align="center">
+  <img src="assets/confusion_matrix.png" alt="Confusion Matrix" width="420"/>
+</p>
+
 The model achieves high recall (0.9261), meaning most takeover attempts are correctly flagged — critical in fraud detection where missed attacks (false negatives) are far costlier than false alarms.
+
+### Precision–Recall Curve
+
+<p align="center">
+  <img src="assets/pr_curve.png" alt="Precision-Recall Curve" width="480"/>
+</p>
+
+PR-AUC of 0.8240 confirms strong minority-class discrimination, which is more informative than ROC-AUC under extreme class imbalance.
+
+### Training Loss Curve
+
+<p align="center">
+  <img src="assets/training_loss.png" alt="Training Loss Curve" width="480"/>
+</p>
+
+Stable, consistent convergence with no sharp oscillations — early stopping (patience = 20, monitored on validation F1) kicks in once the score plateaus.
 
 ## 🛠️ Tech Stack
 
@@ -110,6 +142,12 @@ The model achieves high recall (0.9261), meaning most takeover attempts are corr
 │   └── ato_detection.ipynb        # Full training & evaluation pipeline
 ├── report/
 │   └── ATO_Detection_Report.pdf   # Detailed internship project report
+├── assets/
+│   ├── architecture_pipeline.png
+│   ├── ato_lifecycle.png
+│   ├── confusion_matrix.png
+│   ├── pr_curve.png
+│   └── training_loss.png
 ├── requirements.txt
 ├── .gitignore
 └── README.md
