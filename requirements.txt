@@ -1,0 +1,9 @@
+numpy
+polars
+scikit-learn
+imbalanced-learn
+matplotlib
+seaborn
+torch
+torch_geometric
+kagglehub

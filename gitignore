@@ -1,0 +1,26 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files (dataset too large for GitHub)
+*.csv
+*.parquet
+data/
+rba-dataset*/
+
+# Environment
+.env
+venv/
+env/
+.venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Colab / Kaggle cache
+kaggle.json
